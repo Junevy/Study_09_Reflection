@@ -21,11 +21,11 @@ namespace Study_09_Reflection {
             Console.WriteLine("===========================");
 
             var sc = new ServiceCollection();
-            sc.AddScoped(typeof(ITank), typeof(HeavyTank));
+            sc.AddScoped(typeof(IVehicle), typeof(Car));
+            sc.AddScoped<Driver>();
             var sp = sc.BuildServiceProvider();
-            ITank tank_1 = sp.GetService<ITank>();
+            IVehicle tank_1 = sp.GetService<IVehicle>();
             tank_1.Run();
-            tank_1.Fire();
 
 
         }
